@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ivi test</title>
+    <style>
+
+        .page{
+            max-width: 1200px;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        .rectangle {
+            height: 320px;
+            position: relative;
+        }
+
+        .rectangle {
+            background: #ff0040;
+        }
+
+        .rectangle::after {
+            width: 0px;
+            height: 0px;
+            background: #fff;
+            content: '';
+            position: absolute;
+            bottom: 0;
+        }
+
+        .rectangle::after {
+            right: 0;
+            top: 0;
+            border-bottom: 50px solid #ff0040;
+            border-left: 50px solid #ff0040;
+            border-right: 50px solid white;
+            border-top: 50px solid white;
+        }
+
+        .textPLacement{
+            position: relative;
+            margin-left:10%;
+            margin-right: 10%;
+            top: 50%;
+            color:#fff;
+        }
+        .mainTitle {
+        
+        /* hide text if it more than N lines  */
+        overflow: hidden;
+        /* for set '...' in absolute position */
+        position: relative; 
+        /* use this value to count block height */
+        line-height: 1.2em;
+        /* max-height = line-height (1.2) * lines max number (3) */
+        max-height: 2.4em; 
+        /* fix problem when last visible word doesn't adjoin right side  */
+        text-align: justify;
+        margin-right: -1em;
+        padding-right: 1em;
+        }
+        .mainTitle:before {
+            
+        /* points in the end */
+        content: '...';
+        /* absolute position */
+        position: absolute;
+        /* set position to right bottom corner of block */
+        right: 0;
+        bottom: 0;
+        }
+        .mainTitle:after {
+        /* points in the end */
+        content: '';
+        /* absolute position */
+        position: absolute;
+        /* set position to right bottom corner of text */
+        right: 0;
+        width: 1em;
+        /* set width and height */
+        height: 1em;
+        margin-top: 0.2em;
+        background: white;
+        }
+
+        .resolution{
+            position:absolute; 
+            width: 100%;
+            bottom:0; 
+            display: flex;
+            justify-content: space-between; 
+        }
+
+        .item {
+            margin: 10px;
+            background: white;
+            padding: 0.5% 1%;
+            color:#ff0040;
+        }
+        ol{
+            list-style-type: none;  
+        counter-reset: myCounter;  
+        }
+
+        li{
+            position: relative;
+            padding-left: 1em;
+            margin: 2.5em 0em;
+            list-style: none; 
+        }
+
+        li:before {
+            content:counter(myCounter);
+            counter-increment:myCounter;
+            position:absolute;
+            top: -0.5em;
+            left:-2.5em;
+            width: 2.5em;
+            height: 2.5em;
+            line-height: 2.5em;
+            padding:0px;
+            color:#fff;
+            background:#ff0040;
+            font-weight:bold;
+            text-align:center;
+            border-radius: 1.25em;
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.3);
+            z-index: 1;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="rectangle">
+            <div class="textPLacement">
+                <h4 class="mainTitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+            </div>
+            <div class="resolution">
+                <div class="item">360p</div>
+                <div class="item">720p</div>
+                <div class="item">HD</div>
+                <div class="item">Full HD</div>
+                <div class="item">4k</div>
+            </div>
+        </div>
+        <div>
+            <ol>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            </ol>
+        </div>
+    </div>
+    
+</body>
+</html>
